@@ -3,26 +3,13 @@ import template from '../templates/menu.handlebars'
 
 class MenuController {
 
-    liElements = []; //будущий массив li HTML
-
     constructor(){
-      console.log(template)
-        this.menu = menu; //когда писал JSON.parse(menu) - почему-то валило ошибку
-    }
-
-    parseToHTML(){
-        this.menu.forEach( item  => {
-          console.log(template(item))
-            this.liElements.push(template(item));
-        });
+        this.menu = menu; 
     }
 
     render() {
-        this.parseToHTML();
-        const ul = document.querySelector('.js-menu');
-        this.liElements.forEach(li => {
-            ul.innerHTML += li;
-        });
+        document.querySelector('.js-menu').innerHTML = this.menu.
+          reduce( (acc, item) => acc + template(item), '');
     }
 }
 
