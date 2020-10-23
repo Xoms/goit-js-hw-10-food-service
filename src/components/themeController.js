@@ -13,7 +13,7 @@ class ThemeController {
         this.checkSwitchState()
         this.bodyClasses.add(this.currentTheme);
 
-        this.changeThemeHandler = this.changeThemeHandler.bind(this);
+       // this.changeThemeHandler = this.changeThemeHandler.bind(this);
         //будем слушать чекбокс
         this.themeSwitcher.addEventListener('change', this.changeThemeHandler);
     }
@@ -23,7 +23,7 @@ class ThemeController {
             this.themeSwitcher.checked = true; 
     }
 
-    changeThemeHandler (){
+    changeThemeHandler = () => {
         if (this.bodyClasses.contains(Theme.LIGHT) ) {
 
             this.bodyClasses.replace(Theme.LIGHT, Theme.DARK);
